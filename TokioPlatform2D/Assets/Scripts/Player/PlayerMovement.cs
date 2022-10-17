@@ -5,37 +5,68 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private Rigidbody2D rb;
+    private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
+    [SerializeField] private Transform wallCheck;
     [SerializeField] private LayerMask groundLayer;
     [Space]
     [Header("Properties")]
-    [SerializeField] private float speed;
-    [SerializeField] private float jumpingPower;
+    [SerializeField, Tooltip("Player movement speed")] private float speed;
+    [SerializeField, Tooltip("Player jumping force")] private float jumpingPower;
     private float horizontal;
     private bool isFacingRight = true;
 
+    #region Getters
 
+    public Rigidbody2D GetPlayerRb()
+    {
+        return rb;
+    }
+
+    public bool GetIsFacingRight()
+    {
+        return isFacingRight;
+    }
+
+    #endregion
 
     #region unity methods
+
+    private void Start()
+    {
+        // get player rigidbody
+        rb = GetComponent<Rigidbody2D>();
+    }
+
     private void Update()
     {
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        // If player is facing a wall, he cant move
+        if (!isWalled())
+            rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
 
+        // player facind left or right
         if (!isFacingRight && horizontal > 0f)
             flip();
         else if (isFacingRight && horizontal < 0f)
             flip();
+
     }
     #endregion
 
     #region private methods
 
+    // Detect if player is touching the floor with physics and layer
     private bool isGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
+    // Detect if player is touching a wall with physics and layer
+    private bool isWalled()
+    {
+        return Physics2D.OverlapCircle(wallCheck.position, 0.2f, groundLayer);
+    }
 
+    // Flip the player to the correct direction
     private void flip()
     {
         isFacingRight = !isFacingRight;
@@ -47,19 +78,22 @@ public class PlayerMovement : MonoBehaviour
     #endregion
 
     #region inputActions
+
+    // Read the movement actions and set the value to work with it
     public void Move(InputAction.CallbackContext context)
     {
         horizontal = context.ReadValue<Vector2>().x;
     }
 
+    // Read the jumping button and jump if is posible
     public void Jump(InputAction.CallbackContext context)
     {
-        if(context.performed && isGrounded())
+        if (context.performed && isGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
         }
 
-        if(context.canceled && rb.velocity.y > 0f)
+        if (context.canceled && rb.velocity.y > 0f)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
