@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5833696724150578684}
   - component: {fileID: 6470275916913158723}
   - component: {fileID: 4260083569968943826}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EarthFloor
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1708190595
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -883669794, guid: 705ea5e4e94eb184d8976f1a82a21bcd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

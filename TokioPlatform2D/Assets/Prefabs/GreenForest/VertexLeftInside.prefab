@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1073611184367606170}
   - component: {fileID: 8716046547322321190}
   - component: {fileID: -4265206701331374829}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: VertexLeftInside
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1708190595
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 429154349, guid: 705ea5e4e94eb184d8976f1a82a21bcd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

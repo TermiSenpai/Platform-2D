@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 3126474968448172711}
   - component: {fileID: 3865532934671491719}
   - component: {fileID: 106161518504625293}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FloorVertexRight
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1708190595
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 1006954018, guid: 705ea5e4e94eb184d8976f1a82a21bcd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
