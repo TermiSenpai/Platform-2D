@@ -9,6 +9,7 @@ TagManager:
   - Bg
   - Floor
   - Enemy
+  - FinishLine
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -63,6 +64,9 @@ TagManager:
     locked: 0
   - name: Enemy
     uniqueID: 1270583743
+    locked: 0
+  - name: FinishLine
+    uniqueID: 1360467347
     locked: 0
   - name: Player
     uniqueID: 3508526183
