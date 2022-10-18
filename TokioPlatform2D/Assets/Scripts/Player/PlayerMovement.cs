@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,15 +7,16 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("References")]
     private Rigidbody2D rb;
-    [SerializeField] private Transform groundCheck;
-    [SerializeField] private Transform wallCheck;
-    [SerializeField] private LayerMask groundLayer;
+    [SerializeField, Tooltip("Foot checker position")] private Transform groundCheck;
+    [SerializeField, Tooltip("Front checker position")] private Transform wallCheck;
+    [SerializeField,Tooltip("Ground Layer for physics detection")] private LayerMask groundLayer;
     [Space]
     [Header("Properties")]
     [SerializeField, Tooltip("Player movement speed")] private float speed;
     [SerializeField, Tooltip("Player jumping force")] private float jumpingPower;
     private float horizontal;
     private bool isFacingRight = true;
+    private bool isPlayerDead = false;
 
     #region Getters
 
@@ -77,13 +79,32 @@ public class PlayerMovement : MonoBehaviour
 
     #endregion
 
+    #region public methods
+    public bool isGameOver()
+    {
+        return isPlayerDead;
+    }
+    #endregion
+
+    #region Setters
+
+    public void SetGameOver()
+    {
+        isPlayerDead = true;
+    }
+
+    #endregion
+
     #region inputActions
 
     // Read the movement actions and set the value to work with it
     public void Move(InputAction.CallbackContext context)
     {
-        horizontal = context.ReadValue<Vector2>().x;
+        if(!isGameOver())
+            horizontal = context.ReadValue<Vector2>().x;
     }
+
+   
 
     // Read the jumping button and jump if is posible
     public void Jump(InputAction.CallbackContext context)
