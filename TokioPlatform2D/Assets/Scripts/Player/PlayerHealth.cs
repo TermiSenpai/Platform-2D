@@ -18,7 +18,9 @@ public class PlayerHealth : MonoBehaviour
         healthPoints = maxHealth;
     }
 
-    #endregion
+    #endregion    
+
+    #region Public Methods
 
     #region Getters
     public int GetHealth()
@@ -31,8 +33,6 @@ public class PlayerHealth : MonoBehaviour
         return maxHealth;
     }
     #endregion
-
-    #region Public Methods
 
     public void loseHealth(int damage)
     {
@@ -72,20 +72,4 @@ public class PlayerHealth : MonoBehaviour
         }
     }
     #endregion
-
-
-    #region Debug
-
-#if UNITY_EDITOR
-    public void DebugMouseDown(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {            
-            loseHealth(1);            
-        }
-    }
-#endif
-
-    #endregion
-
 }
