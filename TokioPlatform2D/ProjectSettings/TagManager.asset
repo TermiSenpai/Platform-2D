@@ -59,6 +59,12 @@ TagManager:
   - name: Bg
     uniqueID: 1925959243
     locked: 0
+  - name: FloorBG
+    uniqueID: 38808207
+    locked: 0
+  - name: Props
+    uniqueID: 1464524511
+    locked: 0
   - name: Floor
     uniqueID: 2586776701
     locked: 0
