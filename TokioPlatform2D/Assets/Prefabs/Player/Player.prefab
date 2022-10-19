@@ -265,19 +265,7 @@ MonoBehaviour:
     m_ActionId: 4a00fddb-7f0f-471e-be82-01d3c9220c3c
     m_ActionName: Player/Look[/Mouse/delta,/Pen/delta]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3047343187297181016}
-        m_TargetAssemblyTypeName: PlayerHealth, Assembly-CSharp
-        m_MethodName: DebugMouseDown
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: df4fa5d1-59b9-4c46-bdf4-201b58aa0df2
     m_ActionName: Player/Fire[/Mouse/leftButton]
   - m_PersistentCalls:
