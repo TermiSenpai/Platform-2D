@@ -16,7 +16,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField, Tooltip("Player jumping force")] private float jumpingPower;
     private float horizontal;
     private bool isFacingRight = true;
-    private bool isPlayerDead = false;
     private bool canMove = true;
 
     #region Getters
@@ -95,10 +94,6 @@ public class PlayerMovement : MonoBehaviour
     #endregion
 
     #region public methods
-    public bool isGameOver()
-    {
-        return isPlayerDead;
-    }
 
     public bool CanMove()
     {
@@ -111,11 +106,6 @@ public class PlayerMovement : MonoBehaviour
     public void SetCanMove(bool value)
     {
         canMove = value;
-    }
-
-    public void SetGameOver()
-    {
-        isPlayerDead = true;
     }
 
     #endregion

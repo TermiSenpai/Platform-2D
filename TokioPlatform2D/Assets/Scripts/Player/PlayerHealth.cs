@@ -8,13 +8,15 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int maxHealth;
     [SerializeField] private int healthPoints;
 
-    private PlayerMovement movement;
+    private bool isDead = false;
+
+    private PlayerMovement player;
 
     #region Unity Methods
 
     private void Start()
     {
-        movement = GetComponent<PlayerMovement>();
+        player = GetComponent<PlayerMovement>();
         healthPoints = maxHealth;
     }
 
@@ -36,7 +38,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void loseHealth(int damage)
     {
-        if (!movement.isGameOver())
+        if (!isDead)
         {
             healthPoints -= damage;
             Debug.Log("loseHP: " + healthPoints);
@@ -68,7 +70,8 @@ public class PlayerHealth : MonoBehaviour
             healthPoints = 0;
             Debug.Log("Player is dead");
 
-            movement.SetGameOver();
+            isDead = true;
+            player.SetCanMove(false);
         }
     }
     #endregion
