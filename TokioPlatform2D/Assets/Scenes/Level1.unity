@@ -3249,14 +3249,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: VoidCollider
       objectReference: {fileID: 0}
-    - target: {fileID: 4658706752155058051, guid: 40ed9b8309816824194c2b684337fe30, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4658706752155058051, guid: 40ed9b8309816824194c2b684337fe30, type: 3}
-      propertyPath: m_TagString
-      value: Void
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40ed9b8309816824194c2b684337fe30, type: 3}
 --- !u!1001 &131854813
@@ -9163,7 +9155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1768275213}
   m_Layer: 0
-  m_Name: SpawnPont
+  m_Name: SpawnPoint
   m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9177,7 +9169,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1768275212}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.73819, y: -5.498754, z: -1.3527364}
+  m_LocalPosition: {x: -6, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
