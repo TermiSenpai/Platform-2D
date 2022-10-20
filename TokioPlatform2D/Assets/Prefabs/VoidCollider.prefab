@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4658706752155058049}
   - component: {fileID: 4658706752155058050}
   - component: {fileID: 748837291}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VoidCollider
-  m_TagString: Untagged
+  m_TagString: Void
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
