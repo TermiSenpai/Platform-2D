@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField, Tooltip("Foot checker position")] private Transform groundCheck;
     [SerializeField, Tooltip("Front checker position")] private Transform wallCheck;
-    [SerializeField,Tooltip("Ground Layer for physics detection")] private LayerMask groundLayer;
+    [SerializeField, Tooltip("Ground Layer for physics detection")] private LayerMask groundLayer;
     [Space]
     [Header("Properties")]
     [SerializeField, Tooltip("Player movement speed")] private float speed;
@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private float horizontal;
     private bool isFacingRight = true;
     private bool isPlayerDead = false;
+    private bool canMove = true;
 
     #region Getters
 
@@ -42,15 +43,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        // If player is facing a wall, he cant move
-        if (!isWalled())
-            rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        if (canMove)
+        {
+            playerMove();
 
-        // player facind left or right
-        if (!isFacingRight && horizontal > 0f)
-            flip();
-        else if (isFacingRight && horizontal < 0f)
-            flip();
+            playerTryFlip();
+        }
+        else rb.velocity = Vector2.zero;
 
     }
     #endregion
@@ -77,6 +76,22 @@ public class PlayerMovement : MonoBehaviour
         transform.localScale = localScale;
     }
 
+    private void playerMove()
+    {
+        // If player is facing a wall, he cant move
+        if (!isWalled())
+            rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+    }
+
+    private void playerTryFlip()
+    {
+        // player facind left or right
+        if (!isFacingRight && horizontal > 0f)
+            flip();
+        else if (isFacingRight && horizontal < 0f)
+            flip();
+    }
+
     #endregion
 
     #region public methods
@@ -84,9 +99,19 @@ public class PlayerMovement : MonoBehaviour
     {
         return isPlayerDead;
     }
+
+    public bool CanMove()
+    {
+        return canMove;
+    }
     #endregion
 
     #region Setters
+
+    public void SetCanMove(bool value)
+    {
+        canMove = value;
+    }
 
     public void SetGameOver()
     {
@@ -100,11 +125,10 @@ public class PlayerMovement : MonoBehaviour
     // Read the movement actions and set the value to work with it
     public void Move(InputAction.CallbackContext context)
     {
-        if(!isGameOver())
-            horizontal = context.ReadValue<Vector2>().x;
-    }
 
-   
+        horizontal = context.ReadValue<Vector2>().x;
+
+    }
 
     // Read the jumping button and jump if is posible
     public void Jump(InputAction.CallbackContext context)
