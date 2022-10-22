@@ -13334,10 +13334,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4658706752155058050, guid: 40ed9b8309816824194c2b684337fe30, type: 3}
-      propertyPath: m_Size.x
-      value: 200
-      objectReference: {fileID: 0}
     - target: {fileID: 4658706752155058051, guid: 40ed9b8309816824194c2b684337fe30, type: 3}
       propertyPath: m_Name
       value: VoidCollider
